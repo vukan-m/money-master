@@ -3,7 +3,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React, { useCallback } from "react";
 import { Text, TouchableOpacity } from "react-native";
 import { CategoryDropdownProps, MainStackParamList } from "../types";
-import { categoryDropdownStyle } from "../styles";
+import { categoryDropdownStyle, colors } from "../styles";
 
 const CategoryDropdown = (props: CategoryDropdownProps) => {
   const { setValue, name, value } = props;
@@ -18,7 +18,7 @@ const CategoryDropdown = (props: CategoryDropdownProps) => {
 
   return (
     <TouchableOpacity onPress={handlePress} style={[categoryDropdownStyle]}>
-      <Text>{value || "Select category"}</Text>
+      <Text style={[{ color: colors.darkWhite }]}>{value || "Select category"}</Text>
     </TouchableOpacity>
   );
 };

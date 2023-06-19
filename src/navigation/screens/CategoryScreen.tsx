@@ -3,7 +3,15 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import Categories from "../../components/Categories";
-import { buttonText, container, greenButton, incomeExpenseContainer, titleStyle } from "../../styles";
+import {
+  buttonText,
+  container,
+  flex,
+  greenButton,
+  incomeExpenseContainer,
+  spaceBetween,
+  titleStyle,
+} from "../../styles";
 import { MainStackParamList } from "../../types";
 
 const CategoryScreen = () => {
@@ -16,7 +24,7 @@ const CategoryScreen = () => {
     <View style={container}>
       <Text style={titleStyle}>Money Master App</Text>
 
-      <View style={[{ flex: 1, justifyContent: "space-between" }]}>
+      <View style={[flex, spaceBetween]}>
         <Categories />
 
         <View style={[incomeExpenseContainer]}>

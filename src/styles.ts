@@ -1,6 +1,12 @@
-import { ImageStyle, Platform, StyleProp, TextStyle, ViewStyle } from "react-native";
+import { ImageStyle, Platform, StyleProp, TextStyle, ViewStyle, Dimensions } from "react-native";
 
 export type BasicStyleProp = StyleProp<ViewStyle | TextStyle | ImageStyle>;
+
+const TAB_HEIGHT = 68;
+
+export const fullHeight = () => Dimensions.get("window").height;
+
+export const fullWidth = () => Dimensions.get("window").width;
 
 export const colors = {
   gold: "#FFD700",
@@ -10,6 +16,7 @@ export const colors = {
   gray: "#1F1F1F",
   grayLowOpacity: "#1F1F1F99",
   lightGray: "#292929",
+  darkWhite: "#EEEEEE",
   red: "#FF4136",
 };
 
@@ -371,6 +378,43 @@ export const row: BasicStyleProp = {
   flexDirection: "row",
 };
 
+export const wrap: BasicStyleProp = {
+  flexWrap: "wrap",
+};
+
+export const alignCenter: BasicStyleProp = {
+  alignItems: "center",
+};
+
+export const justifyStart: BasicStyleProp = {
+  justifyContent: "flex-start",
+};
+
+export const justifyCenter: BasicStyleProp = {
+  justifyContent: "center",
+};
+
+export const justifyEnd: BasicStyleProp = {
+  justifyContent: "flex-end",
+};
+
+export const spaceAround: BasicStyleProp = {
+  justifyContent: "space-around",
+};
+
+export const spaceBetween: BasicStyleProp = {
+  justifyContent: "space-between",
+};
+
+export const spaceEvenly: BasicStyleProp = {
+  justifyContent: "space-evenly",
+};
+
+export const center: BasicStyleProp = {
+  ...alignCenter,
+  ...justifyCenter,
+};
+
 export const container: BasicStyleProp = {
   ...flex,
   ...doublePadding,
@@ -506,6 +550,7 @@ export const textInput: BasicStyleProp = {
   borderColor: colors.lightGray,
   borderRadius: spacing.half,
   padding: 0,
+  color: colors.darkWhite,
   ...halfPaddingHorizontal,
   ...(Platform.OS === "ios" && halfPaddingVertical),
 };
@@ -535,4 +580,36 @@ export const categoriesItemStyle: BasicStyleProp = {
 export const categoriesFlatListStyle: BasicStyleProp = {
   ...bgLightGray,
   borderRadius: spacing.half,
+};
+
+export const tabBarStyle = {
+  backgroundColor: "#111111",
+  ...row,
+  height: TAB_HEIGHT,
+};
+
+export const tabRightBorder: BasicStyleProp = {
+  borderRightColor: colors.lightGray,
+  borderRightWidth: 1,
+};
+
+export const categoriesContainer = {
+  ...bgLightGray,
+  ...doubleMarginVertical,
+  ...singlePadding,
+  borderRadius: spacing.single,
+};
+
+export const categoriesItem = {
+  borderWidth: 2,
+  borderColor: colors.grayLowOpacity,
+  borderRadius: spacing.half,
+  ...singlePaddingVertical,
+  ...doublePaddingHorizontal,
+  ...center,
+  ...singleMarginBottom,
+};
+
+export const categoriesLabel = {
+  color: colors.white,
 };

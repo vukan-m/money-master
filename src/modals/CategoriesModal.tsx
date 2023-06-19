@@ -3,7 +3,16 @@ import React, { useCallback } from "react";
 import { FlatList, Text, TouchableOpacity } from "react-native";
 import { useMMKVObject } from "react-native-mmkv";
 import { MMKV_OBJECTS } from "../constants";
-import { categoriesFlatListStyle, categoriesItemStyle, halfMarginRight, halfPadding, singleMarginTop } from "../styles";
+import {
+  blueButton,
+  buttonText,
+  categoriesFlatListStyle,
+  categoriesItemStyle,
+  colors,
+  halfMarginRight,
+  halfPadding,
+  singleMarginTop,
+} from "../styles";
 import { CategoryType, MainStackParamList } from "../types";
 import Modal from "./Modal";
 
@@ -24,7 +33,7 @@ const CategoriesModal = (props: NativeStackScreenProps<MainStackParamList, "Cate
           onPress={handlePress}
         >
           <Text style={[halfMarginRight]}>{"\u2022"}</Text>
-          <Text>{item?.name}</Text>
+          <Text style={[{ color: colors.darkWhite }]}>{item?.name}</Text>
         </TouchableOpacity>
       );
     },
@@ -44,8 +53,8 @@ const CategoriesModal = (props: NativeStackScreenProps<MainStackParamList, "Cate
         style={[categoriesFlatListStyle]}
         contentContainerStyle={[halfPadding]}
       />
-      <TouchableOpacity style={[singleMarginTop]} onPress={handlePress}>
-        <Text>Add Category</Text>
+      <TouchableOpacity style={[singleMarginTop, blueButton]} onPress={handlePress}>
+        <Text style={[buttonText]}>Add Category</Text>
       </TouchableOpacity>
     </Modal>
   );

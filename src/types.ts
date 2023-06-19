@@ -138,6 +138,17 @@ export type MainStackParamList = {
   AddCategory: any;
 };
 
+export type CategoryStackParamList = {
+  Home: any;
+  AddCategory: any;
+  EditCategory: EditCategoryScreenProps;
+};
+
+export type EditCategoryScreenProps = {
+  id: ObjectId;
+  name: string;
+};
+
 export type CategoriesModalProps = {
   setValue: UseFormSetValue<any> | undefined;
   name: string;
