@@ -5,9 +5,11 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "lint": "eslint .",
+    "lint": "eslint --fix $(git diff --staged --name-only --diff-filter=d HEAD | grep -E \"\\.(ts|tsx)$\" | xargs) && git add $(git diff --staged --name-only --diff-filter=d HEAD | grep -E \"\\.(ts|tsx)$\" | xargs)",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "typescript": "tsc --project tsconfig.json --noEmit",
+    "precommit": "yarn lint && yarn typescript"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.5.7",
@@ -15,6 +17,7 @@
     "@react-navigation/native-stack": "6.9.12",
     "@wry/equality": "0.5.3",
     "bson": "5.2.0",
+    "husky": "8.0.3",
     "react": "18.2.0",
     "react-hook-form": "7.43.9",
     "react-native": "0.71.6",
