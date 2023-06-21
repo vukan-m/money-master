@@ -3,6 +3,7 @@ import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { useMMKVObject } from "react-native-mmkv";
 import { CURRENCY, MMKV_OBJECTS } from "../constants";
 import {
+  alignCenter,
   balanceContainer,
   columnHeader,
   expenseDataText,
@@ -31,7 +32,7 @@ const IncomeExpenseItem = ({
   }, [item, data, setData]);
 
   return (
-    <TouchableOpacity onPress={handlePress} style={[rowContainer, { alignItems: "center" }]}>
+    <TouchableOpacity onPress={handlePress} style={[rowContainer, alignCenter]}>
       <Text style={[flex, item?.type === "income" ? incomeDataText : expenseDataText]}>{item?.category}</Text>
       <View style={[flex]}>
         <Text style={[item?.type === "income" ? incomeDataText : expenseDataText]}>
@@ -39,7 +40,7 @@ const IncomeExpenseItem = ({
           {amount} {CURRENCY}
         </Text>
         <Text style={[item?.type === "income" ? incomeDataText : expenseDataText, { fontSize: typography.sm }]}>
-          {item?.date?.toDateString?.()}
+          {item?.date}
         </Text>
       </View>
     </TouchableOpacity>
@@ -48,7 +49,7 @@ const IncomeExpenseItem = ({
 
 const IncomeExpense = () => {
   const [data, setData] = useMMKVObject<IncomeExpenseType[]>(MMKV_OBJECTS.incomeExpense);
-
+  const limitedData = data?.slice(0, 100);
   const renderItem = useCallback(
     ({ item }) => <IncomeExpenseItem item={item} data={data} setData={setData} />,
     [data, setData],
@@ -62,7 +63,7 @@ const IncomeExpense = () => {
       </View>
 
       <FlatList
-        data={data}
+        data={limitedData}
         renderItem={renderItem}
         keyExtractor={(item, index) => `INCOME_EXPENSE_ITEM_${item?.amount}_${item?.category}_${item?.type}_${index}`}
       />

@@ -11,7 +11,7 @@ export type AddIncomeExpenseScreenProps = {
 
 export type IncomeExpenseType = {
   id: ObjectId;
-  date: Date;
+  date: string;
   type: "income" | "expense";
   amount: string;
   category: string;

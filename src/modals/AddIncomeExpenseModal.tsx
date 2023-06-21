@@ -41,7 +41,7 @@ const AddIncomeExpenseModal = ({ route, navigation }) => {
           amount: value,
           category: methods.getValues(FORM_FIELDS.categories.name),
           type: "income",
-          date: new Date(),
+          date: new Date().toLocaleDateString("sr"),
         },
         ...(data ?? []),
       ]);
@@ -52,7 +52,7 @@ const AddIncomeExpenseModal = ({ route, navigation }) => {
           amount: value,
           category: methods.getValues(FORM_FIELDS.categories.name),
           type: "expense",
-          date: new Date(),
+          date: new Date().toLocaleDateString("sr"),
         },
         ...(data ?? []),
       ]);
