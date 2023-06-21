@@ -5,7 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "lint": "eslint --fix $(git diff --staged --name-only --diff-filter=d HEAD | grep -E \"\\.(ts|tsx)$\" | xargs) && git add $(git diff --staged --name-only --diff-filter=d HEAD | grep -E \"\\.(ts|tsx)$\" | xargs)",
+    "lint": "eslint --fix $(git diff --staged --name-only --diff-filter=d HEAD | grep -E \"\\.(ts|tsx)$\" | xargs)",
     "start": "react-native start",
     "test": "jest",
     "typescript": "tsc --project tsconfig.json --noEmit",
