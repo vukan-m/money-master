@@ -4,12 +4,10 @@ import React, { useCallback } from "react";
 import { FlatList, Text, TouchableOpacity } from "react-native";
 import { useMMKVObject } from "react-native-mmkv";
 import { MMKV_OBJECTS } from "../constants";
-import { categoriesContainer, categoriesItem, categoriesLabel, fullWidth, singleMarginRight, spacing } from "../styles";
+import { categoriesContainer, categoriesItem, categoriesLabel } from "../styles";
 import { CategoryStackParamList, CategoryType } from "../types";
 
-const ITEM_MAX_WIDTH = (fullWidth() - spacing.double * 2 - spacing.single * 2) / 2 - spacing.half;
-
-const CategoryItem = ({ item, index }) => {
+const CategoryItem = ({ item }) => {
   const navigation = useNavigation<NativeStackNavigationProp<CategoryStackParamList>>();
 
   const handlePress = useCallback(() => {
@@ -17,10 +15,7 @@ const CategoryItem = ({ item, index }) => {
   }, []);
 
   return (
-    <TouchableOpacity
-      onPress={handlePress}
-      style={[categoriesItem, index % 2 === 0 && singleMarginRight, { width: ITEM_MAX_WIDTH }]}
-    >
+    <TouchableOpacity onPress={handlePress} style={[categoriesItem]}>
       <Text style={[categoriesLabel]}>{item?.name}</Text>
     </TouchableOpacity>
   );
@@ -28,16 +23,24 @@ const CategoryItem = ({ item, index }) => {
 
 const Categories = () => {
   const [categories] = useMMKVObject<CategoryType[]>(MMKV_OBJECTS.categories);
+  const sortedCategories = categories?.sort((a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
 
-  const renderItem = useCallback(({ item, index }) => {
-    return <CategoryItem item={item} index={index} />;
+  const renderItem = useCallback(({ item }) => {
+    return <CategoryItem item={item} />;
   }, []);
 
   return (
     <FlatList
       style={[categoriesContainer]}
-      data={categories}
-      numColumns={2}
+      data={sortedCategories}
       renderItem={renderItem}
       keyExtractor={item => `CATEGORY_${item?.name}_${item?.id}`}
     />
