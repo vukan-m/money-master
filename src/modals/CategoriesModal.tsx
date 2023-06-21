@@ -16,7 +16,7 @@ import {
 import { CategoryType, MainStackParamList } from "../types";
 import Modal from "./Modal";
 
-const CategoriesModal = (props: NativeStackScreenProps<MainStackParamList, "Categories">) => {
+const CategoriesModal = (props: NativeStackScreenProps<MainStackParamList, "CategoriesModal">) => {
   const { setValue, name } = props.route.params;
   const [categories] = useMMKVObject<CategoryType[]>(MMKV_OBJECTS.categories);
 

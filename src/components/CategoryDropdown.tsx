@@ -7,10 +7,10 @@ import { categoryDropdownStyle, colors } from "../styles";
 
 const CategoryDropdown = (props: CategoryDropdownProps) => {
   const { setValue, name, value } = props;
-  const navigation = useNavigation<NativeStackNavigationProp<MainStackParamList, "Categories">>();
+  const navigation = useNavigation<NativeStackNavigationProp<MainStackParamList, "CategoriesModal">>();
 
   const handlePress = useCallback(() => {
-    navigation.navigate("Categories", {
+    navigation.navigate("CategoriesModal", {
       setValue,
       name,
     });

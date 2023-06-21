@@ -12,7 +12,7 @@ const modal: NativeStackNavigationOptions = { presentation: "transparentModal" }
 const CategoryStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Home" component={CategoryScreen} />
+      <Stack.Screen name="Categories" component={CategoryScreen} />
       <Stack.Screen name="AddCategory" component={AddCategoryModal} options={modal} />
       <Stack.Screen name="EditCategory" component={EditCategoryModal} options={modal} />
     </Stack.Navigator>

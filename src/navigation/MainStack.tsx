@@ -15,7 +15,7 @@ const MainStack = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="AddIncomeExpense" component={AddIncomeExpenseModal} options={modal} />
-      <Stack.Screen name="Categories" component={CategoriesModal} options={modal} />
+      <Stack.Screen name="CategoriesModal" component={CategoriesModal} options={modal} />
       <Stack.Screen name="AddCategory" component={AddCategoryModal} options={modal} />
     </Stack.Navigator>
   );
