@@ -13,18 +13,24 @@ const EditCategoryModal = (props: NativeStackScreenProps<CategoryStackParamList,
   const [value, setValue] = useState<string>(name);
   const [categories, setCategories] = useMMKVObject<CategoryType[]>(MMKV_OBJECTS.categories);
   const [incomeExpense, setIncomeExpense] = useMMKVObject<IncomeExpenseType[]>(MMKV_OBJECTS.incomeExpense);
+  const category = categories?.find(cat => cat?.id === id);
 
   const handleOnChange = useCallback(({ nativeEvent }) => {
     setValue(nativeEvent.text);
   }, []);
 
   const deleteCategory = useCallback(() => {
-    const category = categories?.find(cat => cat?.id === id);
     const transformedData = incomeExpense?.filter(item => item?.category !== category?.name);
     setIncomeExpense(transformedData);
   }, []);
 
   const handleSave = useCallback(() => {
+    const editedIncomeExpense = incomeExpense?.reduce<IncomeExpenseType[]>((prev, curr) => {
+      if (curr.category === category?.name) {
+        return [...prev, { ...curr, category: value }];
+      }
+      return [...prev, curr];
+    }, []);
     const editedCategories = categories?.map(cat => {
       if (cat.id === id) {
         return { ...cat, name: value };
@@ -32,6 +38,7 @@ const EditCategoryModal = (props: NativeStackScreenProps<CategoryStackParamList,
       return cat;
     });
     setCategories(editedCategories);
+    setIncomeExpense(editedIncomeExpense);
     navigation.goBack();
   }, [categories, value, navigation, id]);
 
