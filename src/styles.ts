@@ -386,6 +386,18 @@ export const alignCenter: BasicStyleProp = {
   alignItems: "center",
 };
 
+export const alignSelfCenter: BasicStyleProp = {
+  alignSelf: "center",
+};
+
+export const alignSelfEnd: BasicStyleProp = {
+  alignSelf: "flex-end",
+};
+
+export const alignSelfStart: BasicStyleProp = {
+  alignSelf: "flex-start",
+};
+
 export const justifyStart: BasicStyleProp = {
   justifyContent: "flex-start",
 };
@@ -413,6 +425,10 @@ export const spaceEvenly: BasicStyleProp = {
 export const center: BasicStyleProp = {
   ...alignCenter,
   ...justifyCenter,
+};
+
+export const absolute: BasicStyleProp = {
+  position: "absolute",
 };
 
 export const container: BasicStyleProp = {
@@ -471,10 +487,10 @@ export const redButton: BasicStyleProp = {
 };
 
 export const incomeExpenseContainer: BasicStyleProp = {
-  flexDirection: "row",
-  justifyContent: "space-between",
+  ...row,
+  ...spaceBetween,
   ...doublePaddingHorizontal,
-  width: "100%",
+  ...fillWidth,
 };
 
 export const balanceText: BasicStyleProp = {
@@ -494,12 +510,12 @@ export const tableContainer: BasicStyleProp = {
   ...bgLightGray,
   borderRadius: spacing.single,
   ...doublePadding,
-  width: "100%",
+  ...fillWidth,
 };
 
 export const tableHeader: BasicStyleProp = {
-  flexDirection: "row",
-  justifyContent: "space-between",
+  ...row,
+  ...spaceBetween,
   ...singleMarginBottom,
 };
 
@@ -512,7 +528,7 @@ export const columnHeader: BasicStyleProp = {
 };
 
 export const rowContainer: BasicStyleProp = {
-  flexDirection: "row",
+  ...row,
   ...halfMarginBottom,
 };
 
@@ -532,8 +548,8 @@ export const expenseDataText: BasicStyleProp = {
 
 export const modalContainer: BasicStyleProp = {
   ...flex,
-  alignItems: "center",
-  justifyContent: "center",
+  ...alignCenter,
+  ...justifyCenter,
   ...bgGrayLowOpacity,
 };
 
@@ -542,7 +558,7 @@ export const modalInnerContainer: BasicStyleProp = {
   borderRadius: spacing.single,
   ...doublePaddingHorizontal,
   ...singlePaddingVertical,
-  position: "absolute",
+  ...absolute,
 };
 
 export const textInput: BasicStyleProp = {
@@ -558,10 +574,6 @@ export const textInput: BasicStyleProp = {
 export const debugBorder = {
   borderWidth: 1,
   borderColor: "red",
-};
-
-export const absolute: BasicStyleProp = {
-  position: "absolute",
 };
 
 export const categoryDropdownStyle: BasicStyleProp = {

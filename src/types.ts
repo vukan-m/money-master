@@ -127,7 +127,7 @@ export type CategoryDropdownProps = Partial<FormItemProps> & {
 };
 
 export type MainTabParamList = {
-  Home: MainStackParamList;
+  Main: MainStackParamList;
   Categories: CategoryStackParamList;
 };
 
@@ -139,7 +139,7 @@ export type MainStackParamList = {
 };
 
 export type CategoryStackParamList = {
-  Categories: any;
+  CategoriesList: any;
   AddCategory: any;
   EditCategory: EditCategoryScreenProps;
 };

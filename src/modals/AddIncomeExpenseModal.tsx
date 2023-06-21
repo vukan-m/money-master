@@ -4,16 +4,25 @@ import { useForm } from "react-hook-form";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useMMKVObject } from "react-native-mmkv";
 import CategoryDropdown from "../components/CategoryDropdown";
-import Modal from "./Modal";
-import { FORM_FIELDS } from "../constants";
+import { FORM_FIELDS, MMKV_OBJECTS } from "../constants";
 import Form from "../form/Form";
-import { buttonText, colors, greenButton, redButton, spacing, subtitleStyle, textInput } from "../styles";
+import {
+  alignSelfCenter,
+  buttonText,
+  colors,
+  greenButton,
+  redButton,
+  singleAndAHalfMarginBottom,
+  subtitleStyle,
+  textInput,
+} from "../styles";
 import { IncomeExpenseType } from "../types";
+import Modal from "./Modal";
 
 const AddIncomeExpenseModal = ({ route, navigation }) => {
   const { type } = route?.params;
   const [value, setValue] = useState<string | undefined>();
-  const [data, setData] = useMMKVObject<IncomeExpenseType[]>("incomeExpense");
+  const [data, setData] = useMMKVObject<IncomeExpenseType[]>(MMKV_OBJECTS.incomeExpense);
 
   const methods = useForm({ defaultValues: { [FORM_FIELDS.categories.name]: "" } });
 
@@ -54,7 +63,7 @@ const AddIncomeExpenseModal = ({ route, navigation }) => {
   return (
     <Modal title="AddIncomeExpenseModal">
       <View>
-        <Form {...methods} containerStyle={[{ marginBottom: spacing.singleAndAHalf }]}>
+        <Form {...methods} containerStyle={[singleAndAHalfMarginBottom]}>
           <Text style={[subtitleStyle]}>Category:</Text>
           <CategoryDropdown name={FORM_FIELDS.categories.name} />
         </Form>
@@ -70,10 +79,7 @@ const AddIncomeExpenseModal = ({ route, navigation }) => {
             placeholderTextColor={colors.grayLowOpacity}
           />
         </View>
-        <TouchableOpacity
-          onPress={handleAdd}
-          style={[type === "income" ? greenButton : redButton, { alignSelf: "center" }]}
-        >
+        <TouchableOpacity onPress={handleAdd} style={[type === "income" ? greenButton : redButton, alignSelfCenter]}>
           <Text style={[buttonText]}>Add</Text>
         </TouchableOpacity>
       </View>

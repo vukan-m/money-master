@@ -7,11 +7,14 @@ import TotalAmount from "../../components/TotalAmount";
 import {
   buttonText,
   container,
+  doubleMarginBottom,
+  flex,
   greenButton,
   incomeExpenseContainer,
   redButton,
+  row,
   singleMarginLeft,
-  spacing,
+  spaceBetween,
   titleStyle,
 } from "../../styles";
 import { AddIncomeExpenseScreenProps } from "../../types";
@@ -30,7 +33,7 @@ const HomeScreen = () => {
     <View style={container}>
       <Text style={titleStyle}>Money Master App</Text>
 
-      <View style={[{ flexDirection: "row", justifyContent: "space-between", marginBottom: spacing.double }]}>
+      <View style={[row, spaceBetween, doubleMarginBottom]}>
         <Image
           // eslint-disable-next-line global-require
           source={require("../../../assets/app-logo.png")}
@@ -39,7 +42,7 @@ const HomeScreen = () => {
         <TotalAmount />
       </View>
 
-      <View style={[{ flex: 1, justifyContent: "space-between" }]}>
+      <View style={[flex, spaceBetween]}>
         <IncomeExpense />
 
         <View style={[incomeExpenseContainer]}>

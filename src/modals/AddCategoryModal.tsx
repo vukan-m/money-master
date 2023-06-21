@@ -4,7 +4,7 @@ import React, { useCallback, useState } from "react";
 import { Text, TextInput, TouchableOpacity } from "react-native";
 import { useMMKVObject } from "react-native-mmkv";
 import { MMKV_OBJECTS } from "../constants";
-import { blueButton, buttonText, colors, textInput } from "../styles";
+import { alignSelfCenter, blueButton, buttonText, colors, textInput } from "../styles";
 import { CategoryType, MainStackParamList } from "../types";
 import Modal from "./Modal";
 
@@ -32,7 +32,7 @@ const AddCategoryModal = (props: NativeStackScreenProps<MainStackParamList, "Add
         style={[textInput]}
         placeholderTextColor={colors.grayLowOpacity}
       />
-      <TouchableOpacity onPress={handleAdd} style={[blueButton, { alignSelf: "center" }]}>
+      <TouchableOpacity onPress={handleAdd} style={[blueButton, alignSelfCenter]}>
         <Text style={[buttonText]}>Add</Text>
       </TouchableOpacity>
     </Modal>
