@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* MoneyManagementTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MoneyManagementTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-MoneyManagement.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-MoneyManagement.a */; };
-		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
-		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-MoneyManagement-MoneyManagementTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-MoneyManagement-MoneyManagementTests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		00E356F31AD99517003FC87E /* MoneyMasterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MoneyMasterTests.m */; };
+		6F2602D52A4387B900113540 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F2602D42A4387B900113540 /* AppDelegate.mm */; };
+		6F2602D82A4387D800113540 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F2602D72A4387D800113540 /* Images.xcassets */; };
+		6F2602DA2A4387E700113540 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F2602D92A4387E600113540 /* Info.plist */; };
+		6F2602DC2A4387F400113540 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F2602DB2A4387F400113540 /* LaunchScreen.storyboard */; };
+		6F2602DE2A4387FF00113540 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2602DD2A4387FF00113540 /* main.m */; };
+		73EA955F18494AF714916FAC /* libPods-MoneyMaster-MoneyMasterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2AC70AAC3EC26A9828EC69 /* libPods-MoneyMaster-MoneyMasterTests.a */; };
+		B1AA3F4B64E4F4838ECF04D6 /* libPods-MoneyMaster.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8380D0130D1C30F6C0F8D1A /* libPods-MoneyMaster.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,23 +28,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* MoneyManagementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyManagementTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* MoneyMasterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyMasterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* MoneyManagementTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoneyManagementTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* MoneyManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MoneyManagement/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = MoneyManagement/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MoneyManagement/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MoneyManagement/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MoneyManagement/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-MoneyManagement-MoneyManagementTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoneyManagement-MoneyManagementTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4392A12AC88292D35C810B /* Pods-MoneyManagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyManagement.debug.xcconfig"; path = "Target Support Files/Pods-MoneyManagement/Pods-MoneyManagement.debug.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-MoneyManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyManagement.release.xcconfig"; path = "Target Support Files/Pods-MoneyManagement/Pods-MoneyManagement.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-MoneyManagement-MoneyManagementTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyManagement-MoneyManagementTests.debug.xcconfig"; path = "Target Support Files/Pods-MoneyManagement-MoneyManagementTests/Pods-MoneyManagement-MoneyManagementTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-MoneyManagement.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoneyManagement.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MoneyManagement/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-MoneyManagement-MoneyManagementTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyManagement-MoneyManagementTests.release.xcconfig"; path = "Target Support Files/Pods-MoneyManagement-MoneyManagementTests/Pods-MoneyManagement-MoneyManagementTests.release.xcconfig"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* MoneyMasterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoneyMasterTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* MoneyMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14681DB24A9C690BECE2EA72 /* Pods-MoneyMaster-MoneyMasterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyMaster-MoneyMasterTests.debug.xcconfig"; path = "Target Support Files/Pods-MoneyMaster-MoneyMasterTests/Pods-MoneyMaster-MoneyMasterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6F2602D42A4387B900113540 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = MoneyMaster/AppDelegate.mm; sourceTree = "<group>"; };
+		6F2602D62A4387C500113540 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MoneyMaster/AppDelegate.h; sourceTree = "<group>"; };
+		6F2602D72A4387D800113540 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MoneyMaster/Images.xcassets; sourceTree = "<group>"; };
+		6F2602D92A4387E600113540 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MoneyMaster/Info.plist; sourceTree = "<group>"; };
+		6F2602DB2A4387F400113540 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MoneyMaster/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6F2602DD2A4387FF00113540 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MoneyMaster/main.m; sourceTree = "<group>"; };
+		7A2AC70AAC3EC26A9828EC69 /* libPods-MoneyMaster-MoneyMasterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoneyMaster-MoneyMasterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A571D1CFE2D502F8671D6A59 /* Pods-MoneyMaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyMaster.release.xcconfig"; path = "Target Support Files/Pods-MoneyMaster/Pods-MoneyMaster.release.xcconfig"; sourceTree = "<group>"; };
+		C8380D0130D1C30F6C0F8D1A /* libPods-MoneyMaster.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoneyMaster.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6477A4911685C5EE75E4905 /* Pods-MoneyMaster-MoneyMasterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyMaster-MoneyMasterTests.release.xcconfig"; path = "Target Support Files/Pods-MoneyMaster-MoneyMasterTests/Pods-MoneyMaster-MoneyMasterTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		ED2F2FF600627D9D7DDDF200 /* Pods-MoneyMaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyMaster.debug.xcconfig"; path = "Target Support Files/Pods-MoneyMaster/Pods-MoneyMaster.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-MoneyManagement-MoneyManagementTests.a in Frameworks */,
+				73EA955F18494AF714916FAC /* libPods-MoneyMaster-MoneyMasterTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,20 +60,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-MoneyManagement.a in Frameworks */,
+				B1AA3F4B64E4F4838ECF04D6 /* libPods-MoneyMaster.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* MoneyManagementTests */ = {
+		00E356EF1AD99517003FC87E /* MoneyMasterTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* MoneyManagementTests.m */,
+				00E356F21AD99517003FC87E /* MoneyMasterTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = MoneyManagementTests;
+			path = MoneyMasterTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -83,25 +84,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* MoneyManagement */ = {
+		13B07FAE1A68108700A75B9A /* MoneyMaster */ = {
 			isa = PBXGroup;
 			children = (
-				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
-				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
-				13B07FB51A68108700A75B9A /* Images.xcassets */,
-				13B07FB61A68108700A75B9A /* Info.plist */,
-				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
-				13B07FB71A68108700A75B9A /* main.m */,
+				6F2602D62A4387C500113540 /* AppDelegate.h */,
+				6F2602D42A4387B900113540 /* AppDelegate.mm */,
+				6F2602D92A4387E600113540 /* Info.plist */,
+				6F2602D72A4387D800113540 /* Images.xcassets */,
+				6F2602DB2A4387F400113540 /* LaunchScreen.storyboard */,
+				6F2602DD2A4387FF00113540 /* main.m */,
 			);
-			name = MoneyManagement;
+			name = MoneyMaster;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-MoneyManagement.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-MoneyManagement-MoneyManagementTests.a */,
+				C8380D0130D1C30F6C0F8D1A /* libPods-MoneyMaster.a */,
+				7A2AC70AAC3EC26A9828EC69 /* libPods-MoneyMaster-MoneyMasterTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,9 +117,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* MoneyManagement */,
+				13B07FAE1A68108700A75B9A /* MoneyMaster */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* MoneyManagementTests */,
+				00E356EF1AD99517003FC87E /* MoneyMasterTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -131,8 +132,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* MoneyManagement.app */,
-				00E356EE1AD99517003FC87E /* MoneyManagementTests.xctest */,
+				13B07F961A680F5B00A75B9A /* MoneyMaster.app */,
+				00E356EE1AD99517003FC87E /* MoneyMasterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,10 +141,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-MoneyManagement.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-MoneyManagement.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-MoneyManagement-MoneyManagementTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-MoneyManagement-MoneyManagementTests.release.xcconfig */,
+				ED2F2FF600627D9D7DDDF200 /* Pods-MoneyMaster.debug.xcconfig */,
+				A571D1CFE2D502F8671D6A59 /* Pods-MoneyMaster.release.xcconfig */,
+				14681DB24A9C690BECE2EA72 /* Pods-MoneyMaster-MoneyMasterTests.debug.xcconfig */,
+				D6477A4911685C5EE75E4905 /* Pods-MoneyMaster-MoneyMasterTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -151,47 +152,47 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* MoneyManagementTests */ = {
+		00E356ED1AD99517003FC87E /* MoneyMasterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MoneyManagementTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MoneyMasterTests" */;
 			buildPhases = (
-				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				E0AD1A44DDB41350428DE7FE /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
-				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
+				0BF1D9493B06B44BC73BCE6F /* [CP] Embed Pods Frameworks */,
+				C0DC23B18A250835811F14C1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = MoneyManagementTests;
+			name = MoneyMasterTests;
 			productName = MoneyManagementTests;
-			productReference = 00E356EE1AD99517003FC87E /* MoneyManagementTests.xctest */;
+			productReference = 00E356EE1AD99517003FC87E /* MoneyMasterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* MoneyManagement */ = {
+		13B07F861A680F5B00A75B9A /* MoneyMaster */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MoneyManagement" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MoneyMaster" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				2E1B1D1E7F8D85EE298D3F57 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				E18E197F00EA045EB7EFEA8C /* [CP] Embed Pods Frameworks */,
+				3B0A5ECC6297FD08CC680BC6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = MoneyManagement;
+			name = MoneyMaster;
 			productName = MoneyManagement;
-			productReference = 13B07F961A680F5B00A75B9A /* MoneyManagement.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* MoneyMaster.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -212,7 +213,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "MoneyManagement" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "MoneyMaster" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -225,8 +226,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* MoneyManagement */,
-				00E356ED1AD99517003FC87E /* MoneyManagementTests */,
+				13B07F861A680F5B00A75B9A /* MoneyMaster */,
+				00E356ED1AD99517003FC87E /* MoneyMasterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -243,8 +244,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
-				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				6F2602D82A4387D800113540 /* Images.xcassets in Resources */,
+				6F2602DC2A4387F400113540 /* LaunchScreen.storyboard in Resources */,
+				6F2602DA2A4387E700113540 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,24 +269,24 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+		0BF1D9493B06B44BC73BCE6F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoneyManagement/Pods-MoneyManagement-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyMaster-MoneyMasterTests/Pods-MoneyMaster-MoneyMasterTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoneyManagement/Pods-MoneyManagement-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyMaster-MoneyMasterTests/Pods-MoneyMaster-MoneyMasterTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyManagement/Pods-MoneyManagement-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyMaster-MoneyMasterTests/Pods-MoneyMaster-MoneyMasterTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
+		2E1B1D1E7F8D85EE298D3F57 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -299,14 +301,48 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MoneyManagement-MoneyManagementTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MoneyMaster-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		3B0A5ECC6297FD08CC680BC6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyMaster/Pods-MoneyMaster-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyMaster/Pods-MoneyMaster-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyMaster/Pods-MoneyMaster-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0DC23B18A250835811F14C1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyMaster-MoneyMasterTests/Pods-MoneyMaster-MoneyMasterTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyMaster-MoneyMasterTests/Pods-MoneyMaster-MoneyMasterTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyMaster-MoneyMasterTests/Pods-MoneyMaster-MoneyMasterTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0AD1A44DDB41350428DE7FE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -321,62 +357,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MoneyManagement-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MoneyMaster-MoneyMasterTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
+		E18E197F00EA045EB7EFEA8C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoneyManagement-MoneyManagementTests/Pods-MoneyManagement-MoneyManagementTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyMaster/Pods-MoneyMaster-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoneyManagement-MoneyManagementTests/Pods-MoneyManagement-MoneyManagementTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MoneyMaster/Pods-MoneyMaster-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyManagement-MoneyManagementTests/Pods-MoneyManagement-MoneyManagementTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoneyManagement/Pods-MoneyManagement-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoneyManagement/Pods-MoneyManagement-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyManagement/Pods-MoneyManagement-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoneyManagement-MoneyManagementTests/Pods-MoneyManagement-MoneyManagementTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MoneyManagement-MoneyManagementTests/Pods-MoneyManagement-MoneyManagementTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyManagement-MoneyManagementTests/Pods-MoneyManagement-MoneyManagementTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoneyMaster/Pods-MoneyMaster-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -405,7 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* MoneyManagementTests.m in Sources */,
+				00E356F31AD99517003FC87E /* MoneyMasterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,8 +415,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
-				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				6F2602D52A4387B900113540 /* AppDelegate.mm in Sources */,
+				6F2602DE2A4387FF00113540 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +425,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* MoneyManagement */;
+			target = 13B07F861A680F5B00A75B9A /* MoneyMaster */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -431,15 +433,16 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-MoneyManagement-MoneyManagementTests.debug.xcconfig */;
+			baseConfigurationReference = 14681DB24A9C690BECE2EA72 /* Pods-MoneyMaster-MoneyMasterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = DQY76JFMPF;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = MoneyManagementTests/Info.plist;
+				INFOPLIST_FILE = MoneyMasterTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -453,18 +456,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoneyManagement.app/MoneyManagement";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoneyMaster.app/MoneyMaster";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-MoneyManagement-MoneyManagementTests.release.xcconfig */;
+			baseConfigurationReference = D6477A4911685C5EE75E4905 /* Pods-MoneyMaster-MoneyMasterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = MoneyManagementTests/Info.plist;
+				DEVELOPMENT_TEAM = DQY76JFMPF;
+				INFOPLIST_FILE = MoneyMasterTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -478,20 +482,20 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoneyManagement.app/MoneyManagement";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoneyMaster.app/MoneyMaster";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-MoneyManagement.debug.xcconfig */;
+			baseConfigurationReference = ED2F2FF600627D9D7DDDF200 /* Pods-MoneyMaster.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DQY76JFMPF;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = MoneyManagement/Info.plist;
+				INFOPLIST_FILE = MoneyMaster/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -504,7 +508,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = MoneyManagement;
+				PRODUCT_NAME = MoneyMaster;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -513,13 +517,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-MoneyManagement.release.xcconfig */;
+			baseConfigurationReference = A571D1CFE2D502F8671D6A59 /* Pods-MoneyMaster.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DQY76JFMPF;
-				INFOPLIST_FILE = MoneyManagement/Info.plist;
+				INFOPLIST_FILE = MoneyMaster/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -532,7 +536,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = MoneyManagement;
+				PRODUCT_NAME = MoneyMaster;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -678,7 +682,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MoneyManagementTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "MoneyMasterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -687,7 +691,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MoneyManagement" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MoneyMaster" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -696,7 +700,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "MoneyManagement" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "MoneyMaster" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

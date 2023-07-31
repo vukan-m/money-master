@@ -1,7 +1,7 @@
 import { ObjectId } from "bson";
 import { ReactNode } from "react";
 import { RegisterOptions, UseFormReturn, UseFormSetValue } from "react-hook-form";
-import { ImageStyle, StyleProp, TextInput, TextStyle, ViewStyle } from "react-native";
+import { ImageStyle, StyleProp, TextInput, TextInputProps, TextStyle, ViewStyle } from "react-native";
 
 export type AddIncomeExpenseScreenProps = {
   AddIncomeExpense: {
@@ -14,12 +14,14 @@ export type IncomeExpenseType = {
   date: string;
   type: "income" | "expense";
   amount: string;
-  category: string;
+  category: ObjectId;
+  description?: string;
 };
 
 export type CategoryType = {
   id: ObjectId;
   name: string;
+  icon: string;
 };
 
 export type BasicStyleProp = StyleProp<ViewStyle | TextStyle | ImageStyle>;
@@ -152,4 +154,58 @@ export type EditCategoryScreenProps = {
 export type CategoriesModalProps = {
   setValue: UseFormSetValue<any> | undefined;
   name: string;
+};
+
+export type BasicTextInputInputProps = Partial<FormItemProps> &
+  TextInputProps & {
+    /**
+     *
+     * the value of the input
+     * @type {(string | number)}
+     */
+    value: string | number;
+
+    /**
+     *
+     * the style of the container View
+     * @type {BasicStyleProp}
+     */
+    containerStyle?: BasicStyleProp;
+
+    /**
+     * sets the value of the input
+     *
+     */
+    setValue?: (value: string) => void;
+
+    /**
+     *
+     * the ref of the text input
+     * @type {*}
+     */
+    inputRef?: any;
+  };
+
+export type BasicTextInputProps = Omit<BasicTextInputInputProps, "onChange" | "value"> & {
+  value?: any;
+
+  /**
+   *
+   * triggered when the value has changed
+   */
+  onChange?: (string: string) => void;
+};
+
+export type BasicTextInputRef = {
+  /**
+   * sets the value of the input
+   *
+   */
+  setValue: (newValue: string) => void;
+
+  /**
+   * returns the value of the input
+   *
+   */
+  getValue: () => string;
 };

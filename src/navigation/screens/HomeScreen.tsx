@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
+import { getAllCategories } from "../../MMKVStorage";
 import IncomeExpense from "../../components/IncomeExpense";
 import TotalAmount from "../../components/TotalAmount";
 import {
@@ -24,7 +25,7 @@ const HomeScreen = () => {
   const handleAddIncome = () => {
     navigation.navigate("AddIncomeExpense", { type: "income" });
   };
-
+  console.log(getAllCategories(), "CATEGORIES");
   const handleAddExpense = () => {
     navigation.navigate("AddIncomeExpense", { type: "expense" });
   };

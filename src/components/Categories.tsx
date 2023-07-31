@@ -1,48 +1,54 @@
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { ObjectId } from "bson";
 import React, { useCallback } from "react";
 import { FlatList, Text, TouchableOpacity } from "react-native";
 import { useMMKVObject } from "react-native-mmkv";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { MMKV_OBJECTS } from "../constants";
-import { categoriesContainer, categoriesItem, categoriesLabel } from "../styles";
+import {
+  categoriesContainer,
+  categoriesItem,
+  categoriesLabel,
+  colors,
+  singleMarginRight,
+  singlePaddingBottom,
+} from "../styles";
 import { CategoryStackParamList, CategoryType } from "../types";
 
-const CategoryItem = ({ item }) => {
+const CategoryItem = ({ id }: { id: ObjectId }) => {
+  const [category] = useMMKVObject<CategoryType>(MMKV_OBJECTS.category(id));
   const navigation = useNavigation<NativeStackNavigationProp<CategoryStackParamList>>();
 
   const handlePress = useCallback(() => {
-    navigation.navigate("EditCategory", { id: item?.id, name: item?.name });
-  }, []);
+    if (category) {
+      navigation.navigate("EditCategory", { id: category?.id, name: category?.name });
+    }
+  }, [category]);
 
   return (
     <TouchableOpacity onPress={handlePress} style={[categoriesItem]}>
-      <Text style={[categoriesLabel]}>{item?.name}</Text>
+      <Icon style={[singleMarginRight]} color={colors.white} size={24} name={category?.icon ?? "close"} />
+      <Text style={[categoriesLabel]}>{category?.name}</Text>
     </TouchableOpacity>
   );
 };
 
 const Categories = () => {
   const [categories] = useMMKVObject<CategoryType[]>(MMKV_OBJECTS.categories);
-  const sortedCategories = categories?.sort((a, b) => {
-    if (a.name < b.name) {
-      return -1;
-    }
-    if (a.name > b.name) {
-      return 1;
-    }
-    return 0;
-  });
 
   const renderItem = useCallback(({ item }) => {
-    return <CategoryItem item={item} />;
+    return <CategoryItem id={item} />;
   }, []);
 
   return (
     <FlatList
       style={[categoriesContainer]}
-      data={sortedCategories}
+      contentContainerStyle={[singlePaddingBottom]}
+      data={categories}
       renderItem={renderItem}
-      keyExtractor={item => `CATEGORY_${item?.name}_${item?.id}`}
+      keyExtractor={(item, index) => `CATEGORY_${item}_${index}`}
+      showsVerticalScrollIndicator={false}
     />
   );
 };

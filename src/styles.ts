@@ -17,6 +17,7 @@ export const colors = {
   grayLowOpacity: "#1F1F1F99",
   lightGray: "#292929",
   darkWhite: "#EEEEEE",
+  borderLow: "#444444",
   red: "#FF4136",
 };
 
@@ -457,6 +458,11 @@ export const subtitleStyle: BasicStyleProp = {
   ...halfMarginBottom,
 };
 
+export const descriptionStyle: BasicStyleProp = {
+  color: colors.darkWhite,
+  fontSize: typography.md,
+};
+
 export const buttonText: BasicStyleProp = {
   color: colors.white,
   fontSize: typography.md,
@@ -535,14 +541,12 @@ export const rowContainer: BasicStyleProp = {
 export const incomeDataText: BasicStyleProp = {
   color: colors.green,
   fontSize: typography.md,
-  ...flex,
   textAlign: "center",
 };
 
 export const expenseDataText: BasicStyleProp = {
   color: colors.red,
   fontSize: typography.md,
-  ...flex,
   textAlign: "center",
 };
 
@@ -605,6 +609,12 @@ export const tabRightBorder: BasicStyleProp = {
   borderRightWidth: 1,
 };
 
+export const basicRoundedBorder: BasicStyleProp = {
+  borderWidth: 2,
+  borderColor: colors.borderLow,
+  borderRadius: spacing.half,
+};
+
 export const categoriesContainer = {
   ...bgLightGray,
   ...doubleMarginVertical,
@@ -613,15 +623,29 @@ export const categoriesContainer = {
 };
 
 export const categoriesItem = {
-  borderWidth: 2,
-  borderColor: colors.grayLowOpacity,
-  borderRadius: spacing.half,
+  ...basicRoundedBorder,
   ...singlePaddingVertical,
   ...doublePaddingHorizontal,
   ...center,
   ...singleMarginBottom,
+  ...row,
 };
 
 export const categoriesLabel = {
   color: colors.white,
+};
+
+export const overflowHidden: BasicStyleProp = {
+  overflow: "hidden",
+};
+
+export const selectedItemStyle = {
+  borderColor: colors.gold,
+  borderWidth: 1,
+  borderRadiuse: spacing.half,
+};
+
+export const unselectedItemStyle = {
+  ...selectedItemStyle,
+  borderColor: colors.gray,
 };

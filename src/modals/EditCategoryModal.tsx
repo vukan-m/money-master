@@ -2,52 +2,35 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useCallback, useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useMMKVObject } from "react-native-mmkv";
+import { deleteCategory } from "../MMKVStorage";
+import IconList from "../components/IconList";
 import { MMKV_OBJECTS } from "../constants";
 import { alignSelfCenter, buttonText, colors, greenButton, redButton, row, spaceBetween, textInput } from "../styles";
-import { CategoryStackParamList, CategoryType, IncomeExpenseType } from "../types";
+import { CategoryStackParamList, CategoryType } from "../types";
 import Modal from "./Modal";
 
 const EditCategoryModal = (props: NativeStackScreenProps<CategoryStackParamList, "EditCategory">) => {
   const { navigation, route } = props;
   const { id, name } = route.params;
   const [value, setValue] = useState<string>(name);
-  const [categories, setCategories] = useMMKVObject<CategoryType[]>(MMKV_OBJECTS.categories);
-  const [incomeExpense, setIncomeExpense] = useMMKVObject<IncomeExpenseType[]>(MMKV_OBJECTS.incomeExpense);
-  const category = categories?.find(cat => cat?.id === id);
+  const [category, setCategory] = useMMKVObject<CategoryType>(MMKV_OBJECTS.category(id));
+  const [iconName, setIconName] = useState(category?.icon ?? "");
 
   const handleOnChange = useCallback(({ nativeEvent }) => {
     setValue(nativeEvent.text);
   }, []);
 
-  const deleteCategory = useCallback(() => {
-    const transformedData = incomeExpense?.filter(item => item?.category !== category?.name);
-    setIncomeExpense(transformedData);
-  }, []);
-
   const handleSave = useCallback(() => {
-    const editedIncomeExpense = incomeExpense?.reduce<IncomeExpenseType[]>((prev, curr) => {
-      if (curr.category === category?.name) {
-        return [...prev, { ...curr, category: value }];
-      }
-      return [...prev, curr];
-    }, []);
-    const editedCategories = categories?.map(cat => {
-      if (cat.id === id) {
-        return { ...cat, name: value };
-      }
-      return cat;
-    });
-    setCategories(editedCategories);
-    setIncomeExpense(editedIncomeExpense);
-    navigation.goBack();
-  }, [categories, value, navigation, id]);
+    if (value !== "") {
+      setCategory({ ...(category as CategoryType), name: value, icon: iconName });
+      navigation.goBack();
+    }
+  }, [category, iconName, value, navigation]);
 
   const handleDelete = useCallback(() => {
-    const deletedCategory = categories?.filter(cat => cat?.id !== id);
-    setCategories(deletedCategory);
-    deleteCategory();
+    deleteCategory(id);
     navigation.goBack();
-  }, [categories, navigation, id]);
+  }, [navigation, id]);
 
   return (
     <Modal title="EditCategoryModal">
@@ -58,6 +41,7 @@ const EditCategoryModal = (props: NativeStackScreenProps<CategoryStackParamList,
         style={[textInput]}
         placeholderTextColor={colors.grayLowOpacity}
       />
+      <IconList iconName={iconName} setIconName={setIconName} />
       <View style={[row, spaceBetween]}>
         <TouchableOpacity onPress={handleSave} style={[greenButton, alignSelfCenter]}>
           <Text style={[buttonText]}>Done</Text>

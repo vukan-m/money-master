@@ -3,9 +3,11 @@ import React, { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useMMKVObject } from "react-native-mmkv";
+import { storage } from "../MMKVStorage";
 import CategoryDropdown from "../components/CategoryDropdown";
 import { FORM_FIELDS, MMKV_OBJECTS } from "../constants";
 import Form from "../form/Form";
+import Input from "../form/Input";
 import {
   alignSelfCenter,
   buttonText,
@@ -16,49 +18,58 @@ import {
   subtitleStyle,
   textInput,
 } from "../styles";
-import { IncomeExpenseType } from "../types";
 import Modal from "./Modal";
 
 const AddIncomeExpenseModal = ({ route, navigation }) => {
   const { type } = route?.params;
   const [value, setValue] = useState<string | undefined>();
-  const [data, setData] = useMMKVObject<IncomeExpenseType[]>(MMKV_OBJECTS.incomeExpense);
+  const incomeExpenseId = new ObjectId();
+  const [incomeExpenses, setIncomeExpenses] = useMMKVObject<ObjectId[]>(MMKV_OBJECTS.incomeExpenses);
 
-  const methods = useForm({ defaultValues: { [FORM_FIELDS.categories.name]: "" } });
+  const methods = useForm({
+    defaultValues: {
+      [FORM_FIELDS.categories.name]: "",
+      [FORM_FIELDS.description.name]: "",
+    },
+  });
 
   const handleOnChange = useCallback(({ nativeEvent }) => {
     setValue(nativeEvent.text);
   }, []);
 
   const handleAdd = useCallback(() => {
-    if (!value) {
+    const category = methods.getValues(FORM_FIELDS.categories.name) as unknown as ObjectId;
+    if (!value || !category) {
       return;
     }
     if (type === "income") {
-      setData([
-        {
-          id: new ObjectId(),
+      storage.set(
+        MMKV_OBJECTS.incomeExpense(incomeExpenseId),
+        JSON.stringify({
+          id: incomeExpenseId,
           amount: value,
-          category: methods.getValues(FORM_FIELDS.categories.name),
+          category,
           type: "income",
           date: new Date().toLocaleDateString("sr"),
-        },
-        ...(data ?? []),
-      ]);
+          description: methods.getValues(FORM_FIELDS.description.name),
+        }),
+      );
     } else {
-      setData([
-        {
-          id: new ObjectId(),
+      storage.set(
+        MMKV_OBJECTS.incomeExpense(incomeExpenseId),
+        JSON.stringify({
+          id: incomeExpenseId,
           amount: value,
-          category: methods.getValues(FORM_FIELDS.categories.name),
+          category,
           type: "expense",
           date: new Date().toLocaleDateString("sr"),
-        },
-        ...(data ?? []),
-      ]);
+          description: methods.getValues(FORM_FIELDS.description.name),
+        }),
+      );
     }
+    setIncomeExpenses([incomeExpenseId, ...(incomeExpenses ?? [])]);
     navigation.goBack();
-  }, [type, value, data, methods]);
+  }, [type, value, incomeExpenseId, incomeExpenses, methods]);
 
   return (
     <Modal title="AddIncomeExpenseModal">
@@ -66,6 +77,8 @@ const AddIncomeExpenseModal = ({ route, navigation }) => {
         <Form {...methods} containerStyle={[singleAndAHalfMarginBottom]}>
           <Text style={[subtitleStyle]}>Category:</Text>
           <CategoryDropdown name={FORM_FIELDS.categories.name} />
+          <Text style={[subtitleStyle]}>Description:</Text>
+          <Input name={FORM_FIELDS.description.name} style={[textInput]} placeholderTextColor={colors.grayLowOpacity} />
         </Form>
         <View>
           <Text style={[subtitleStyle]}>Amount:</Text>

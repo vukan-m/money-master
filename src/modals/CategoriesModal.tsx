@@ -1,7 +1,9 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { ObjectId } from "bson";
 import React, { useCallback } from "react";
 import { FlatList, Text, TouchableOpacity } from "react-native";
 import { useMMKVObject } from "react-native-mmkv";
+import { getCategory } from "../MMKVStorage";
 import { MMKV_OBJECTS } from "../constants";
 import {
   blueButton,
@@ -13,17 +15,18 @@ import {
   halfPadding,
   singleMarginTop,
 } from "../styles";
-import { CategoryType, MainStackParamList } from "../types";
+import { MainStackParamList } from "../types";
 import Modal from "./Modal";
 
 const CategoriesModal = (props: NativeStackScreenProps<MainStackParamList, "CategoriesModal">) => {
   const { setValue, name } = props.route.params;
-  const [categories] = useMMKVObject<CategoryType[]>(MMKV_OBJECTS.categories);
+  const [categories] = useMMKVObject<ObjectId[]>(MMKV_OBJECTS.categories);
 
   const renderItem = useCallback(
     ({ item, index }) => {
+      const category = getCategory(item);
       const handlePress = () => {
-        setValue?.(name, item?.name);
+        setValue?.(name, category?.id);
         props?.navigation?.goBack();
       };
 
@@ -33,7 +36,7 @@ const CategoriesModal = (props: NativeStackScreenProps<MainStackParamList, "Cate
           onPress={handlePress}
         >
           <Text style={[halfMarginRight]}>{"\u2022"}</Text>
-          <Text style={[{ color: colors.darkWhite }]}>{item?.name}</Text>
+          <Text style={[{ color: colors.darkWhite }]}>{category?.name}</Text>
         </TouchableOpacity>
       );
     },

@@ -10,7 +10,7 @@ const TotalAmount = () => {
   const storage = useMMKV();
 
   useMMKVListener(changedKey => {
-    if (changedKey === "incomeExpense") {
+    if (changedKey === "incomeExpenses") {
       setTotalAmount(getTotalAmount());
     }
   }, storage);
