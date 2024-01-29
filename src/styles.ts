@@ -486,7 +486,7 @@ export const redButton: BasicStyleProp = {
   ...bgRed,
 };
 
-export const incomeExpenseContainer: BasicStyleProp = {
+export const financeContainer: BasicStyleProp = {
   ...row,
   ...spaceBetween,
   ...doublePaddingHorizontal,

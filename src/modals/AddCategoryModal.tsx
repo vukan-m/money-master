@@ -18,7 +18,7 @@ const AddCategoryModal = (props: NativeStackScreenProps<MainStackParamList, "Add
 
   const handleAdd = useCallback(() => {
     realm.write(() => {
-      realm.create(Schema.Category, { _id: new Realm.BSON.ObjectId(), name: value });
+      realm.create(Schema.Categories, { _id: new Realm.BSON.ObjectId(), name: value });
     });
     navigation.goBack();
   }, [value, navigation]);

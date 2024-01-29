@@ -5,7 +5,7 @@ import { Schema, useQuery } from "../storage/src";
 import { balanceContainer, balanceText } from "../styles";
 
 const TotalAmount = () => {
-  const totalAmount = useQuery(Schema.IncomeExpense)?.reduce((acc, curr) => {
+  const totalAmount = useQuery(Schema.Finances)?.reduce((acc, curr) => {
     if (curr.type === "expense") {
       return acc - curr.amount;
     }

@@ -3,15 +3,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import Categories from "../../components/Categories";
-import {
-  buttonText,
-  container,
-  flex,
-  greenButton,
-  incomeExpenseContainer,
-  spaceBetween,
-  titleStyle,
-} from "../../styles";
+import { buttonText, container, financeContainer, flex, greenButton, spaceBetween, titleStyle } from "../../styles";
 import { MainStackParamList } from "../../types";
 
 const CategoryScreen = () => {
@@ -27,7 +19,7 @@ const CategoryScreen = () => {
       <View style={[flex, spaceBetween]}>
         <Categories />
 
-        <View style={[incomeExpenseContainer]}>
+        <View style={[financeContainer]}>
           <TouchableOpacity onPress={handleAddCategory} style={greenButton}>
             <Text style={buttonText}>Add Category</Text>
           </TouchableOpacity>

@@ -1,8 +1,8 @@
 import Provider from "./providers/Provider";
-import Category from "./schema/Category";
-import IncomeExpense from "./schema/IncomeExpense";
+import Categories from "./schema/Categories";
+import Finances from "./schema/Finances";
 
-const Schema = { IncomeExpense, Category };
+const Schema = { Finances, Categories };
 const { RealmProvider, useObject, useQuery, useRealm } = Provider;
 
-export { RealmProvider, useObject, useQuery, useRealm, Schema };
+export { RealmProvider, Schema, useObject, useQuery, useRealm };

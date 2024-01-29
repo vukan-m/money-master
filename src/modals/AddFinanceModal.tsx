@@ -18,7 +18,7 @@ import {
 } from "../styles";
 import Modal from "./Modal";
 
-const AddIncomeExpenseModal = ({ route, navigation }) => {
+const AddFinanceModal = ({ route, navigation }) => {
   const { type } = route?.params;
   const realm = useRealm();
   const [value, setValue] = useState<string | undefined>();
@@ -34,9 +34,12 @@ const AddIncomeExpenseModal = ({ route, navigation }) => {
       return;
     }
     realm.write(() => {
-      const category = realm.objectForPrimaryKey(Schema.Category, methods.getValues(FORM_FIELDS.categories.name) ?? "");
+      const category = realm.objectForPrimaryKey(
+        Schema.Categories,
+        methods.getValues(FORM_FIELDS.categories.name) ?? "",
+      );
       if (category) {
-        realm.create(Schema.IncomeExpense, {
+        realm.create(Schema.Finances, {
           _id: new Realm.BSON.ObjectId(),
           amount: Number(value),
           category,
@@ -49,7 +52,7 @@ const AddIncomeExpenseModal = ({ route, navigation }) => {
   }, [type, value, methods]);
 
   return (
-    <Modal title="AddIncomeExpenseModal">
+    <Modal title="Add Finance">
       <View>
         <Form {...methods} containerStyle={[singleAndAHalfMarginBottom]}>
           <Text style={[subtitleStyle]}>Category:</Text>
@@ -75,4 +78,4 @@ const AddIncomeExpenseModal = ({ route, navigation }) => {
   );
 };
 
-export default AddIncomeExpenseModal;
+export default AddFinanceModal;

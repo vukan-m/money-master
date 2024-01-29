@@ -11,7 +11,7 @@ const EditCategoryModal = (props: NativeStackScreenProps<CategoryStackParamList,
   const { _id, name } = route.params;
   const realm = useRealm();
   const [value, setValue] = useState<string>(name);
-  const category = useObject(Schema.Category, _id);
+  const category = useObject(Schema.Categories, _id);
 
   const handleOnChange = useCallback(({ nativeEvent }) => {
     setValue(nativeEvent.text);
@@ -28,7 +28,7 @@ const EditCategoryModal = (props: NativeStackScreenProps<CategoryStackParamList,
 
   const handleDelete = useCallback(() => {
     realm.write(() => {
-      realm.delete(realm.objects(Schema.IncomeExpense).filtered("category._id == $0", category?._id));
+      realm.delete(realm.objects(Schema.Finances).filtered("category._id == $0", category?._id));
       realm.delete(category);
     });
     navigation.goBack();

@@ -13,9 +13,9 @@ import {
   tableHeader,
   typography,
 } from "../styles";
-import { IncomeExpenseType } from "../types";
+import { FinancesType } from "../types";
 
-const IncomeExpenseItem = ({ item }: { item: IncomeExpenseType }) => {
+const FinanceItem = ({ item }: { item: FinancesType }) => {
   const realm = useRealm();
   const prefix = item?.type === "income" ? "+" : "-";
   const amount = Number(item?.amount).toFixed(2);
@@ -45,10 +45,10 @@ const IncomeExpenseItem = ({ item }: { item: IncomeExpenseType }) => {
   return null;
 };
 
-const IncomeExpense = () => {
-  const data = useQuery(Schema.IncomeExpense)?.slice(0, 100);
+const Finance = () => {
+  const data = useQuery(Schema.Finances)?.slice(0, 100);
 
-  const renderItem = useCallback(({ item }) => <IncomeExpenseItem item={item} />, []);
+  const renderItem = useCallback(({ item }) => <FinanceItem item={item} />, []);
 
   return (
     <View style={[balanceContainer, flex]}>
@@ -60,10 +60,10 @@ const IncomeExpense = () => {
       <FlatList
         data={data}
         renderItem={renderItem}
-        keyExtractor={(item, index) => `INCOME_EXPENSE_ITEM_${item?.amount}_${item?.category}_${item?.type}_${index}`}
+        keyExtractor={(item, index) => `FINANCE_ITEM_${item?.amount}_${item?.category}_${item?.type}_${index}`}
       />
     </View>
   );
 };
 
-export default IncomeExpense;
+export default Finance;

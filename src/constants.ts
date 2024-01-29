@@ -5,8 +5,3 @@ export const FORM_FIELDS = {
     name: "categories",
   },
 };
-
-export const MMKV_OBJECTS = {
-  categories: "categories",
-  incomeExpense: "incomeExpense",
-};

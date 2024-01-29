@@ -4,9 +4,9 @@ import React, { useCallback } from "react";
 import { FlatList, Text, TouchableOpacity } from "react-native";
 import { Schema, useQuery } from "../storage/src";
 import { categoriesContainer, categoriesItem, categoriesLabel } from "../styles";
-import { CategoryStackParamList, CategoryType } from "../types";
+import { CategoriesType, CategoryStackParamList } from "../types";
 
-const CategoryItem = ({ item }: { item: CategoryType }) => {
+const CategoryItem = ({ item }: { item: CategoriesType }) => {
   const navigation = useNavigation<NativeStackNavigationProp<CategoryStackParamList>>();
 
   const handlePress = useCallback(() => {
@@ -21,7 +21,7 @@ const CategoryItem = ({ item }: { item: CategoryType }) => {
 };
 
 const Categories = () => {
-  const categories = useQuery(Schema.Category).sorted("name");
+  const categories = useQuery(Schema.Categories).sorted("name");
 
   const renderItem = useCallback(({ item }) => {
     return <CategoryItem item={item} />;

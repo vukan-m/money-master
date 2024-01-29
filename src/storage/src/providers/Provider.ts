@@ -1,9 +1,9 @@
 import { createRealmContext, Realm } from "@realm/react";
 
-import IncomeExpense from "../schema/IncomeExpense";
-import Category from "../schema/Category";
+import Categories from "../schema/Categories";
+import Finances from "../schema/Finances";
 
-export const objectSchema = [IncomeExpense, Category];
+export const objectSchema = [Finances, Categories];
 
 export const realmConfig: Realm.Configuration = {
   schema: objectSchema,

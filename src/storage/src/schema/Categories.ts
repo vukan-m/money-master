@@ -1,12 +1,12 @@
 import Realm from "realm";
 
-class Category extends Realm.Object {
+class Categories extends Realm.Object {
   public _id!: Realm.BSON.ObjectId;
 
   public name!: string;
 
   public static schema: Realm.ObjectSchema = {
-    name: "Category",
+    name: "Categories",
     primaryKey: "_id",
     properties: {
       _id: "objectId",
@@ -15,4 +15,4 @@ class Category extends Realm.Object {
   };
 }
 
-export default Category;
+export default Categories;

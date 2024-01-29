@@ -2,15 +2,15 @@ import { ReactNode } from "react";
 import { RegisterOptions, UseFormReturn, UseFormSetValue } from "react-hook-form";
 import { ImageStyle, StyleProp, TextInput, TextStyle, ViewStyle } from "react-native";
 import Realm, { BSON } from "realm";
-import Category from "./storage/src/schema/Category";
-import IncomeExpense from "./storage/src/schema/IncomeExpense";
+import Categories from "./storage/src/schema/Categories";
+import Finances from "./storage/src/schema/Finances";
 
 export type SchemaType<T> = Omit<T, keyof Realm.Object>;
-export type CategoryType = SchemaType<InstanceType<typeof Category>>;
-export type IncomeExpenseType = SchemaType<InstanceType<typeof IncomeExpense>>;
+export type CategoriesType = SchemaType<InstanceType<typeof Categories>>;
+export type FinancesType = SchemaType<InstanceType<typeof Finances>>;
 
-export type AddIncomeExpenseScreenProps = {
-  AddIncomeExpense: {
+export type AddFinanceScreenProps = {
+  AddFinance: {
     type: "income" | "expense";
   };
 };
@@ -126,7 +126,7 @@ export type MainTabParamList = {
 
 export type MainStackParamList = {
   Home: any;
-  AddIncomeExpense: any;
+  AddFinance: any;
   CategoriesModal: CategoriesModalProps;
   AddCategory: any;
 };

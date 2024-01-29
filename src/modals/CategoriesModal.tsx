@@ -17,7 +17,7 @@ import Modal from "./Modal";
 
 const CategoriesModal = (props: NativeStackScreenProps<MainStackParamList, "CategoriesModal">) => {
   const { setValue, name } = props.route.params;
-  const categories = useQuery(Schema.Category).sorted("name");
+  const categories = useQuery(Schema.Categories).sorted("name");
 
   const renderItem = useCallback(
     ({ item, index }) => {

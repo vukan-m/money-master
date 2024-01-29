@@ -2,31 +2,31 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import IncomeExpense from "../../components/IncomeExpense";
+import Finance from "../../components/Finance";
 import TotalAmount from "../../components/TotalAmount";
 import {
   buttonText,
   container,
   doubleMarginBottom,
+  financeContainer,
   flex,
   greenButton,
-  incomeExpenseContainer,
   redButton,
   row,
   singleMarginLeft,
   spaceBetween,
   titleStyle,
 } from "../../styles";
-import { AddIncomeExpenseScreenProps } from "../../types";
+import { AddFinanceScreenProps } from "../../types";
 
 const HomeScreen = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<AddIncomeExpenseScreenProps>>();
+  const navigation = useNavigation<NativeStackNavigationProp<AddFinanceScreenProps>>();
   const handleAddIncome = () => {
-    navigation.navigate("AddIncomeExpense", { type: "income" });
+    navigation.navigate("AddFinance", { type: "income" });
   };
 
   const handleAddExpense = () => {
-    navigation.navigate("AddIncomeExpense", { type: "expense" });
+    navigation.navigate("AddFinance", { type: "expense" });
   };
 
   return (
@@ -43,9 +43,9 @@ const HomeScreen = () => {
       </View>
 
       <View style={[flex, spaceBetween]}>
-        <IncomeExpense />
+        <Finance />
 
-        <View style={[incomeExpenseContainer]}>
+        <View style={[financeContainer]}>
           <TouchableOpacity onPress={handleAddIncome} style={greenButton}>
             <Text style={buttonText}>Add Income</Text>
           </TouchableOpacity>

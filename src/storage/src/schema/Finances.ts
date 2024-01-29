@@ -1,7 +1,7 @@
 import Realm from "realm";
-import Category from "./Category";
+import Categories from "./Categories";
 
-class IncomeExpense extends Realm.Object {
+class Finances extends Realm.Object {
   public _id!: Realm.BSON.ObjectId;
 
   public date!: string;
@@ -10,19 +10,19 @@ class IncomeExpense extends Realm.Object {
 
   public amount!: number;
 
-  public category!: Category;
+  public category!: Categories;
 
   public static schema: Realm.ObjectSchema = {
-    name: "IncomeExpense",
+    name: "Finances",
     primaryKey: "_id",
     properties: {
       _id: "objectId",
       date: "string",
       type: "string",
       amount: "int",
-      category: "Category",
+      category: "Categories",
     },
   };
 }
 
-export default IncomeExpense;
+export default Finances;
