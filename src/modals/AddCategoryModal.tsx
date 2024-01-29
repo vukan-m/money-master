@@ -1,27 +1,27 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { ObjectId } from "bson";
 import React, { useCallback, useState } from "react";
 import { Text, TextInput, TouchableOpacity } from "react-native";
-import { useMMKVObject } from "react-native-mmkv";
-import { MMKV_OBJECTS } from "../constants";
+import Realm from "realm";
+import { Schema, useRealm } from "../storage/src";
 import { alignSelfCenter, blueButton, buttonText, colors, textInput } from "../styles";
-import { CategoryType, MainStackParamList } from "../types";
+import { MainStackParamList } from "../types";
 import Modal from "./Modal";
 
 const AddCategoryModal = (props: NativeStackScreenProps<MainStackParamList, "AddCategory">) => {
   const { navigation } = props;
+  const realm = useRealm();
   const [value, setValue] = useState<string>("");
-  const [categories, setCategories] = useMMKVObject<CategoryType[]>(MMKV_OBJECTS.categories);
 
   const handleOnChange = useCallback(({ nativeEvent }) => {
     setValue(nativeEvent.text);
   }, []);
 
   const handleAdd = useCallback(() => {
-    const sortedCategories = [...(categories ?? []), { id: new ObjectId(), name: value }];
-    setCategories(sortedCategories);
+    realm.write(() => {
+      realm.create(Schema.Category, { _id: new Realm.BSON.ObjectId(), name: value });
+    });
     navigation.goBack();
-  }, [categories, setCategories, value, navigation]);
+  }, [value, navigation]);
 
   return (
     <Modal title="AddCategoryModal">

@@ -2,16 +2,15 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React, { useCallback } from "react";
 import { FlatList, Text, TouchableOpacity } from "react-native";
-import { useMMKVObject } from "react-native-mmkv";
-import { MMKV_OBJECTS } from "../constants";
+import { Schema, useQuery } from "../storage/src";
 import { categoriesContainer, categoriesItem, categoriesLabel } from "../styles";
 import { CategoryStackParamList, CategoryType } from "../types";
 
-const CategoryItem = ({ item }) => {
+const CategoryItem = ({ item }: { item: CategoryType }) => {
   const navigation = useNavigation<NativeStackNavigationProp<CategoryStackParamList>>();
 
   const handlePress = useCallback(() => {
-    navigation.navigate("EditCategory", { id: item?.id, name: item?.name });
+    navigation.navigate("EditCategory", { _id: item?._id, name: item?.name });
   }, []);
 
   return (
@@ -22,16 +21,7 @@ const CategoryItem = ({ item }) => {
 };
 
 const Categories = () => {
-  const [categories] = useMMKVObject<CategoryType[]>(MMKV_OBJECTS.categories);
-  const sortedCategories = categories?.sort((a, b) => {
-    if (a.name < b.name) {
-      return -1;
-    }
-    if (a.name > b.name) {
-      return 1;
-    }
-    return 0;
-  });
+  const categories = useQuery(Schema.Category).sorted("name");
 
   const renderItem = useCallback(({ item }) => {
     return <CategoryItem item={item} />;
@@ -40,9 +30,9 @@ const Categories = () => {
   return (
     <FlatList
       style={[categoriesContainer]}
-      data={sortedCategories}
+      data={categories}
       renderItem={renderItem}
-      keyExtractor={item => `CATEGORY_${item?.name}_${item?.id}`}
+      keyExtractor={item => `CATEGORY_${item?.name}_${item?._id}`}
     />
   );
 };

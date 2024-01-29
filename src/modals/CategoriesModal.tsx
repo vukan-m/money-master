@@ -1,8 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useCallback } from "react";
 import { FlatList, Text, TouchableOpacity } from "react-native";
-import { useMMKVObject } from "react-native-mmkv";
-import { MMKV_OBJECTS } from "../constants";
+import { Schema, useQuery } from "../storage/src";
 import {
   blueButton,
   buttonText,
@@ -13,17 +12,17 @@ import {
   halfPadding,
   singleMarginTop,
 } from "../styles";
-import { CategoryType, MainStackParamList } from "../types";
+import { MainStackParamList } from "../types";
 import Modal from "./Modal";
 
 const CategoriesModal = (props: NativeStackScreenProps<MainStackParamList, "CategoriesModal">) => {
   const { setValue, name } = props.route.params;
-  const [categories] = useMMKVObject<CategoryType[]>(MMKV_OBJECTS.categories);
+  const categories = useQuery(Schema.Category).sorted("name");
 
   const renderItem = useCallback(
     ({ item, index }) => {
       const handlePress = () => {
-        setValue?.(name, item?.name);
+        setValue?.(name, item?._id);
         props?.navigation?.goBack();
       };
 
@@ -49,7 +48,7 @@ const CategoriesModal = (props: NativeStackScreenProps<MainStackParamList, "Cate
       <FlatList
         renderItem={renderItem}
         data={categories}
-        keyExtractor={(item, index) => `CATEGORY_${item}_${index}`}
+        keyExtractor={(item, index) => `CATEGORY_${item?._id}_${index}`}
         style={[categoriesFlatListStyle]}
         contentContainerStyle={[halfPadding]}
       />

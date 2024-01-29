@@ -1,7 +1,7 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback } from "react";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
-import { useMMKVObject } from "react-native-mmkv";
-import { CURRENCY, MMKV_OBJECTS } from "../constants";
+import { CURRENCY } from "../constants";
+import { Schema, useQuery, useRealm } from "../storage/src";
 import {
   alignCenter,
   balanceContainer,
@@ -15,45 +15,40 @@ import {
 } from "../styles";
 import { IncomeExpenseType } from "../types";
 
-const IncomeExpenseItem = ({
-  item,
-  data,
-  setData,
-}: {
-  item: IncomeExpenseType;
-  data: IncomeExpenseType[] | undefined;
-  setData: (value: IncomeExpenseType[] | undefined) => void;
-}) => {
-  const prefix = useMemo(() => (item?.type === "income" ? "+" : "-"), [item?.type]);
-  const amount = useMemo(() => Number(item?.amount).toFixed(2), [item?.amount]);
+const IncomeExpenseItem = ({ item }: { item: IncomeExpenseType }) => {
+  const realm = useRealm();
+  const prefix = item?.type === "income" ? "+" : "-";
+  const amount = Number(item?.amount).toFixed(2);
 
   const handlePress = useCallback(() => {
-    setData(data?.filter(dataItem => dataItem !== item));
-  }, [item, data, setData]);
+    realm.write(() => {
+      realm.delete(item);
+    });
+  }, [item]);
 
-  return (
-    <TouchableOpacity onPress={handlePress} style={[rowContainer, alignCenter]}>
-      <Text style={[flex, item?.type === "income" ? incomeDataText : expenseDataText]}>{item?.category}</Text>
-      <View style={[flex]}>
-        <Text style={[item?.type === "income" ? incomeDataText : expenseDataText]}>
-          {prefix}
-          {amount} {CURRENCY}
-        </Text>
-        <Text style={[item?.type === "income" ? incomeDataText : expenseDataText, { fontSize: typography.sm }]}>
-          {item?.date}
-        </Text>
-      </View>
-    </TouchableOpacity>
-  );
+  if (item) {
+    return (
+      <TouchableOpacity onPress={handlePress} style={[rowContainer, alignCenter]}>
+        <Text style={[flex, item?.type === "income" ? incomeDataText : expenseDataText]}>{item?.category?.name}</Text>
+        <View style={[flex]}>
+          <Text style={[item?.type === "income" ? incomeDataText : expenseDataText]}>
+            {prefix}
+            {amount} {CURRENCY}
+          </Text>
+          <Text style={[item?.type === "income" ? incomeDataText : expenseDataText, { fontSize: typography.sm }]}>
+            {item?.date}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    );
+  }
+  return null;
 };
 
 const IncomeExpense = () => {
-  const [data, setData] = useMMKVObject<IncomeExpenseType[]>(MMKV_OBJECTS.incomeExpense);
-  const limitedData = data?.slice(0, 100);
-  const renderItem = useCallback(
-    ({ item }) => <IncomeExpenseItem item={item} data={data} setData={setData} />,
-    [data, setData],
-  );
+  const data = useQuery(Schema.IncomeExpense)?.slice(0, 100);
+
+  const renderItem = useCallback(({ item }) => <IncomeExpenseItem item={item} />, []);
 
   return (
     <View style={[balanceContainer, flex]}>
@@ -63,7 +58,7 @@ const IncomeExpense = () => {
       </View>
 
       <FlatList
-        data={limitedData}
+        data={data}
         renderItem={renderItem}
         keyExtractor={(item, index) => `INCOME_EXPENSE_ITEM_${item?.amount}_${item?.category}_${item?.type}_${index}`}
       />

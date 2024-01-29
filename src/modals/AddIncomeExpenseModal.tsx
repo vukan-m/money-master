@@ -1,11 +1,11 @@
-import { ObjectId } from "bson";
 import React, { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
-import { useMMKVObject } from "react-native-mmkv";
+import Realm from "realm";
 import CategoryDropdown from "../components/CategoryDropdown";
-import { FORM_FIELDS, MMKV_OBJECTS } from "../constants";
+import { FORM_FIELDS } from "../constants";
 import Form from "../form/Form";
+import { Schema, useRealm } from "../storage/src";
 import {
   alignSelfCenter,
   buttonText,
@@ -16,15 +16,14 @@ import {
   subtitleStyle,
   textInput,
 } from "../styles";
-import { IncomeExpenseType } from "../types";
 import Modal from "./Modal";
 
 const AddIncomeExpenseModal = ({ route, navigation }) => {
   const { type } = route?.params;
+  const realm = useRealm();
   const [value, setValue] = useState<string | undefined>();
-  const [data, setData] = useMMKVObject<IncomeExpenseType[]>(MMKV_OBJECTS.incomeExpense);
 
-  const methods = useForm({ defaultValues: { [FORM_FIELDS.categories.name]: "" } });
+  const methods = useForm({ defaultValues: { [FORM_FIELDS.categories.name]: null } });
 
   const handleOnChange = useCallback(({ nativeEvent }) => {
     setValue(nativeEvent.text);
@@ -34,31 +33,20 @@ const AddIncomeExpenseModal = ({ route, navigation }) => {
     if (!value) {
       return;
     }
-    if (type === "income") {
-      setData([
-        {
-          id: new ObjectId(),
-          amount: value,
-          category: methods.getValues(FORM_FIELDS.categories.name),
-          type: "income",
+    realm.write(() => {
+      const category = realm.objectForPrimaryKey(Schema.Category, methods.getValues(FORM_FIELDS.categories.name) ?? "");
+      if (category) {
+        realm.create(Schema.IncomeExpense, {
+          _id: new Realm.BSON.ObjectId(),
+          amount: Number(value),
+          category,
+          type,
           date: new Date().toLocaleDateString("sr"),
-        },
-        ...(data ?? []),
-      ]);
-    } else {
-      setData([
-        {
-          id: new ObjectId(),
-          amount: value,
-          category: methods.getValues(FORM_FIELDS.categories.name),
-          type: "expense",
-          date: new Date().toLocaleDateString("sr"),
-        },
-        ...(data ?? []),
-      ]);
-    }
+        });
+      }
+    });
     navigation.goBack();
-  }, [type, value, data, methods]);
+  }, [type, value, methods]);
 
   return (
     <Modal title="AddIncomeExpenseModal">

@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text, View } from "react-native";
-import { useMMKV, useMMKVListener } from "react-native-mmkv";
-import { getTotalAmount } from "../MMKVStorage";
 import { CURRENCY } from "../constants";
+import { Schema, useQuery } from "../storage/src";
 import { balanceContainer, balanceText } from "../styles";
 
 const TotalAmount = () => {
-  const [totalAmount, setTotalAmount] = useState<number>(getTotalAmount());
-  const storage = useMMKV();
-
-  useMMKVListener(changedKey => {
-    if (changedKey === "incomeExpense") {
-      setTotalAmount(getTotalAmount());
+  const totalAmount = useQuery(Schema.IncomeExpense)?.reduce((acc, curr) => {
+    if (curr.type === "expense") {
+      return acc - curr.amount;
     }
-  }, storage);
+    return acc + curr.amount;
+  }, 0);
 
   return (
     <View style={[balanceContainer, { marginBottom: 0 }]}>

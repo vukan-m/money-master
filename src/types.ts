@@ -1,25 +1,18 @@
-import { ObjectId } from "bson";
 import { ReactNode } from "react";
 import { RegisterOptions, UseFormReturn, UseFormSetValue } from "react-hook-form";
 import { ImageStyle, StyleProp, TextInput, TextStyle, ViewStyle } from "react-native";
+import Realm, { BSON } from "realm";
+import Category from "./storage/src/schema/Category";
+import IncomeExpense from "./storage/src/schema/IncomeExpense";
+
+export type SchemaType<T> = Omit<T, keyof Realm.Object>;
+export type CategoryType = SchemaType<InstanceType<typeof Category>>;
+export type IncomeExpenseType = SchemaType<InstanceType<typeof IncomeExpense>>;
 
 export type AddIncomeExpenseScreenProps = {
   AddIncomeExpense: {
     type: "income" | "expense";
   };
-};
-
-export type IncomeExpenseType = {
-  id: ObjectId;
-  date: string;
-  type: "income" | "expense";
-  amount: string;
-  category: string;
-};
-
-export type CategoryType = {
-  id: ObjectId;
-  name: string;
 };
 
 export type BasicStyleProp = StyleProp<ViewStyle | TextStyle | ImageStyle>;
@@ -145,7 +138,7 @@ export type CategoryStackParamList = {
 };
 
 export type EditCategoryScreenProps = {
-  id: ObjectId;
+  _id: BSON.ObjectId;
   name: string;
 };
 
